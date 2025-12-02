@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>naacioo - Strona Streamera</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- STYLE BAZOWE (MOTYW COZY/FOREST) --- */
+        :root {
+            --bg-dark: #121212;
+            --bg-card: #1e1e24;
+            --kick-green: #53fc18; /* Neonowa zieleń Kicka */
+            --mc-green: #5b8c5a;   /* Spokojna zieleń Minecrafta */
+            --mc-dirt: #8d6e63;
+            --mod-purple: #9c27b0;
+            --text-main: #e0e0e0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Nunito', sans-serif;
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: white; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* --- NAWIGACJA --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: rgba(18, 18, 18, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #333;
+        }
+
+        .logo { 
+            font-size: 1.5rem; 
+            font-weight: 900; 
+            color: var(--mc-green); 
+            letter-spacing: 1px;
+            display: flex; align-items: center; gap: 10px;
+        }
+        
+        .nav-links { display: flex; gap: 25px; }
+        .nav-links a:hover { color: var(--mc-green); transform: translateY(-2px); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(18, 18, 18, 1)), url('https://images.unsplash.com/photo-1599582531336-70802c6c0e0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 0 20px;
+            margin-top: 60px;
+        }
+
+        .hero h1 { font-size: 3.5rem; margin-bottom: 15px; font-weight: 900; }
+        .hero span { color: var(--mc-green); }
+        .hero p { font-size: 1.3rem; color: #ddd; margin-bottom: 30px; max-width: 600px; }
+
+        .btn-kick {
+            padding: 15px 40px;
+            background-color: var(--kick-green);
+            color: black;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            box-shadow: 0 0 15px rgba(83, 252, 24, 0.3);
+            transition: 0.2s;
+        }
+        .btn-kick:hover { transform: translateY(-2px); box-shadow: 0 0 25px rgba(83, 252, 24, 0.6); background-color: #6aff36; }
+
+        /* --- O MNIE (Z NOWYM ZDJĘCIEM) --- */
+        .container { max-width: 1100px; margin: 0 auto; padding: 80px 20px; }
+
+        .about-box {
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 20px;
+            border-left: 5px solid var(--mc-dirt);
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        /* Styl zdjęcia profilowego */
+        .profile-pic {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 4px solid var(--mc-green);
+            box-shadow: 0 0 20px rgba(91, 140, 90, 0.3);
+        }
+
+        .about-text h2 { margin-bottom: 20px; font-size: 2rem; }
+
+        /* --- SEKCJA GRY I INFO --- */
+        .info-section { background-color: #16161a; padding: 80px 20px; }
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 50px; }
+        .section-title span { border-bottom: 4px solid var(--mc-green); }
+
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #333;
+            transition: 0.3s;
+        }
+        .card:hover { transform: translateY(-5px); border-color: var(--mc-green); }
+        
+        .card h3 { font-size: 1.5rem; margin-bottom: 10px; color: var(--mc-green); }
+        .card-purple h3 { color: var(--mod-purple); }
+
+        /* --- STOPKA --- */
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            background: #0d0d0d;
+            border-top: 1px solid #222;
+        }
+        .social-links { display: flex; justify-content: center; gap: 20px; margin: 20px 0; flex-wrap: wrap; }
+        .social-btn {
+            padding: 10px 20px;
+            border-radius: 50px;
+            background: #222;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .social-btn:hover { background: white; color: black; }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
+            
+            .about-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .profile-pic {
+                margin: 0 auto 20px auto;
+                width: 150px; height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">🟩 naacioo</div>
+        <div class="nav-links">
+            <a href="#about">O mnie</a>
+            <a href="#games">Gry</a>
+            <a href="#contact">Kontakt</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Witaj w świecie <br><span>naacioo</span></h1>
+        <p>Spokojny survival, mody i budowanie. Wpadnij odpocząć.</p>
+        <a href="https://kick.com/nqtiax" target="_blank" rel="noopener noreferrer" class="btn-kick">Oglądaj na KICK.com</a>
+    </section>
+
+    <section id="about" class="container">
+        <div class="about-box">
+            <div class="about-grid">
+                
+                <div class="about-image">
+                    <img src="1764692881063.jpg" alt="Zdjęcie profilowe naacioo" class="profile-pic">
+                </div>
+
+                <div class="about-text">
+                    <h2>👋 Cześć!</h2>
+                    <p>Nie znajdziesz tu tryhardowania ani krzyków. Mój kanał to miejsce dla tych, którzy lubią spokojny gameplay i dobrą atmosferę.</p>
+                    <br>
+                    <p>Gramy głównie w <b>Minecrafta 1.16.5</b> na paczce <b>BetterMC</b>. Odkrywamy nowe biomy, walczymy z bossami i budujemy klimatyczne bazy.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="games" class="info-section">
+        <div class="container">
+            <h2 class="section-title"><span>Co i Kiedy?</span></h2>
+            
+            <div class="grid-cards">
+                
+                <div class="card card-purple" style="border-bottom: 4px solid var(--mod-purple);">
+                    <h3>⚙️ Better MC</h3>
+                    <p>Aktualnie ogrywamy paczkę modów <b>BetterMC</b> na wersji <b>1.16.5</b>.</p>
+                    <p style="margin-top: 10px; color: #aaa; font-size: 0.9rem;">Dużo eksploracji, nowe wymiary i dungeony.</p>
+                </div>
+
+                <div class="card" style="border-bottom: 4px solid var(--kick-green);">
+                    <h3>🕒 Kiedy Live?</h3>
+                    <p>Streamy są <b>losowo</b>! Nie trzymam się sztywnego grafiku.</p>
+                    <br>
+                    <p>Najlepiej dołącz do <b>Discorda</b>, tam zawsze daję znać przed odpaleniem streama.</p>
+                    <a href="https://discord.gg/4N8UcNDu" target="_blank" rel="noopener noreferrer" style="color: var(--kick-green); font-weight: bold; display: block; margin-top: 10px;">➜ Dołącz do serwera</a>
+                </div>
+
+                <div class="card" style="border-bottom: 4px solid #ff0050;">
+                    <h3>📱 TikTok</h3>
+                    <p>Wrzucam tam najlepsze momenty ze streamów i luźne klipy.</p>
+                    <a href="https://tiktok.com/@naacioo" target="_blank" rel="noopener noreferrer" style="color: #ff0050; font-weight: bold; display: block; margin-top: 15px;">➜ Zobacz TikToka</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <h3>Złap mnie tutaj:</h3>
+        <div class="social-links">
+            <a href="https://discord.gg/bxmZfZGMJa" target="_blank" rel="noopener noreferrer" class="social-btn" style="color: #5865F2;">Discord</a>
+            <a href="https://kick.com/nqtiax" target="_blank" rel="noopener noreferrer" class="social-btn" style="color: var(--kick-green);">Kick</a>
+            <a href="https://tiktok.com/@naacioo" target="_blank" rel="noopener noreferrer" class="social-btn" style="color: #ff0050;">TikTok</a>
+        </div>
+        
+        <p style="margin-top: 20px;">Kontakt: <a href="mailto:natankrysiu@o2.pl" style="color: var(--mc-green);">natankrysiu@o2.pl</a></p>
+        <p style="margin-top: 10px; opacity: 0.5; font-size: 0.8rem;">&copy; 2025 naacioo</p>
+    </footer>
+
+    </body>
+</html>
