@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>naacioo - Strona Streamera</title>
+    <title></title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
     
     <style>
@@ -34,7 +34,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 5px 5%;
+            padding: 25px 5%;
             background-color: rgba(18, 18, 18, 0.95);
             position: fixed;
             width: 100%;
@@ -63,7 +63,7 @@
             display: flex; align-items: center; gap: 8px;
         }
         
-        .nav-links { display: flex; gap: 20px; font-size: 0.9rem; }
+        .nav-links { display: flex; gap: 40px; font-size: 0.9rem; }
         .nav-links a:hover { color: var(--mc-green); transform: translateY(-2px); }
 
         .hero {
@@ -195,7 +195,7 @@
             .hero h1 { font-size: 2.5rem; }
             
             .nav-links { display: none; }
-            .about-grid { grid-template-columns: 1fr; text-align: center; }
+            .about-grid { grid-template-columns: 1fr; text-align: right; }
             .profile-pic { margin: 0 auto 20px auto; width: 150px; height: 150px; }
         }
     </style>
@@ -203,14 +203,13 @@
 <body>
 
     <nav id="navbar">
-        <div class="logo">🟩 naacioo</div>
-        <div class="nav-links">
-            <a href="#about">O mnie</a>
-            <a href="#games">Gry</a>
-            <a href="#contact">Kontakt</a>
-        </div>
-        <div style="width: 80px;"></div>
-    </nav>
+    <div class="logo">🟩 naacioo</div>
+    <div class="nav-links">
+        <a href="about">O mnie</a>
+        <a href="games">Gry</a>
+        <a href="contact">Kontakt</a>
+    </div>
+</nav>
 
     <section class="hero">
         <div class="hero-content-wrapper">
